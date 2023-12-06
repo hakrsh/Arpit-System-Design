@@ -16,7 +16,7 @@ Make sure you have Docker and Docker Compose installed on your machine.
 1. Clone the repository:
 
     ```bash
-    git clone git@github.com:harikrishnanum/Arpit-System-Design-for-Beginners.git
+    git clone git@github.com:harikrishnanum/Arpit-System-Design.git
     ```
 
 2. Navigate to the project directory:
