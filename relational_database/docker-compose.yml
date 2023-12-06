@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: arm64v8/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: social_network
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./mysql-data:/var/lib/mysql
+
+  phpmyadmin:
+    image: arm64v8/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+    ports:
+      - "8081:80"
+    depends_on:
+      - mysql
+  
+  node:
+    image: arm64v8/node
+    volumes:
+      - ./app:/app
+    depends_on:
+      - mysql
+    command: "tail -f /dev/null"
